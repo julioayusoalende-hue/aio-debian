@@ -5,29 +5,29 @@ Origin: aio-debian
 Label: aio-debian
 Suite: stable
 Codename: stable
-Date: Wed, 11 Nov 2026 21:28:36 UTC
+Date: Wed, 11 Nov 2026 22:47:53 UTC
 Architectures: all
 Components: main
 Description: Repositorio APT de aio-debian
 MD5Sum:
- db8c5bcb4944c6e8365c914ea365d2ec              817 main/binary-all/Packages
- 18e445cc073bc38ab2493950a4653d09              567 main/binary-all/Packages.gz
+ 8847096d07afdfc10d52216d0db34f73             1634 main/binary-all/Packages
+ 533ae7d4ac4a480c6bf1485e83d85c3f              664 main/binary-all/Packages.gz
 SHA256:
- a6ca17c27ec036e21758dbdc233fa34eb6a32aada92112da661bd898f73ed75f              817 main/binary-all/Packages
- e9fa1c696dc9ec9d41b9244688a341847ab9a3d428b51e5129c535758eb405a9              567 main/binary-all/Packages.gz
+ 176065770df1fce059e0aa0d17257ecf9d15efb51ecd205ba619fc465c8be276             1634 main/binary-all/Packages
+ ae3f1c21ff0aa7bf0d72c934c04f661c0bfb2c4d6975d4bffbcf50b65fb21633              664 main/binary-all/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEBKUjgaIDXVuVJMpq4OZLjuD5AAwFAmr03gQACgkQ4OZLjuD5
-AAx2ARAAtuueQs+86AKsGVFRszBE6wGeZDcRzXAuBmmuTpQdhb37hQDbmgr9QwOV
-8+NsRYxmZSkHauYOKTOgyugvz8tTycw+YM6fEXpd2Q8boLJdYkAxqlAUAWaUb8a3
-Tf54/OBkFigsNF+Vgc1Oe6q4Dm00J6QcXzqbNa7aFeDJKk9WgydWCw7G1FTyzHQQ
-M+oQsKCR2di8WOiS1ExMZapiFtrh8RdVoUU5kC6tseTWQN1Bu6XlPft8hN1je9tu
-lbPggY6rAkMhG6qZ9Vb4gsOIsir7Sfav7HqNE/0rzR72cgFMJE30JWkh5suG3yWy
-DAjA7gCir5syESOkoaA4fGFf92rVWfAmSHAlHjOICHYDEZjTBsBkJ+Q6KlCcJqi9
-Wo06m2xSsTyoGXdAVXzH/sGJufjIk15CP2w3Sq2vehbqOD+/4yLrq0M15tY2h8Zf
-Z2NKOTK09HEDzqJrtJYCEIL1c8u/iqanvB69C7o/DILUQs4J8AroxF5pN1I33MyX
-V73lRKDujPSMrNnG0U0YtV4F8EoHpvMLEFI/8/BjlEZAcqKdoQ2C7k1hl1jS35C6
-qPGioIbSyBTV0ahBK1UWFXsJTNdcivN+J2MSjIuDoYA/tVCX1VaBwxV6z2xxd+UQ
-mdnIrWm3hHwjZ0/UmY3P4SPFfEOV6Iwe758toSOxxniLmX8d180=
-=aKqv
+iQIzBAEBCgAdFiEEBKUjgaIDXVuVJMpq4OZLjuD5AAwFAmr08JkACgkQ4OZLjuD5
+AAwjpw//RouIE0+mypE84khNCz5AQCziGI20qEBg+j7j4k9wgN3HRFfgq9twdyJb
+FKX4Rel+1qeDdGYafTnXYfyYcVj68VBD/WIDdJvFGhi2cIlUN41xfaawepGkvnH1
+baEOPjlHcVl6/ywr2o+PG35XRIwbOoZXY7fRlpr5CNNLfPn6ochvzaRUH1CwhGIh
+4u2N/JMjdRFYmLswna49ySFfCIYGngnvB7khMG2JMJIDiOF+85zc99hsMV7R6WON
+9EAOv50tbd+3ZewiLmnM1vqGnxIToHIwlMHRzCiXnsJZaTJptzJJ7iFXF8vaYuQU
+P53sNhfM+AZM58Ek/WMsfrywXUArO3+izkSlh9LlDMxNA6WZgO9W2DS31pkg9b11
+Qdn8eBvFX77JDbgptuFfTnmhM4cmZ4tUB6ckO+0b6l+gZHHvH6E55ElaGMrTWmnA
+0xhIHIHHWbfGN0+ITurmufMW+HrY8P1VkA6Xwgi1NcAddC7Cv0v1V0WdBE0VqIcD
+LyKyCGZYzBv2e6Tjuj9u9kEPZsoi3EICbK0IVbLWET7GTiLbIZhq3N0urM8Kx/4E
+ZRrjpYcFQCv5N6kWm9N6px5agomTFhfN8Lvy0A41NNbfnRQmvRgW6n75TGyQ/U4B
+09RBjPzUXhqDcEG1QzjNZ6CntvdcF2hC9VUivQshaHl4smfUkW0=
+=rsVk
 -----END PGP SIGNATURE-----

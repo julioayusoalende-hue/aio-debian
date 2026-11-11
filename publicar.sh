@@ -52,6 +52,7 @@ Types: deb
 URIs: $URL
 Suites: stable
 Components: main
+Architectures: all
 Signed-By: /usr/share/keyrings/$PAQUETE.gpg
 EOT
 
