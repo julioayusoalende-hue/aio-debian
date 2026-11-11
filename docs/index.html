@@ -5,8 +5,10 @@
 <h1>aio-debian</h1>
 <p>Script todo en uno de mantenimiento y configuración para Debian: actualiza con apt,
 habilita <code>contrib</code> y <code>non-free</code>, instala Flatpak/Flathub y mucho más.
-Software libre (GPL-3.0+). Versión actual: <strong>1.0.2</strong>.</p>
-<h2>Instalación (una sola vez)</h2>
+Software libre (GPL-3.0+). Versión actual: <strong>1.0.3</strong>.</p>
+<h2>Instalación rápida</h2>
+<pre style="background:#f4f4f4;padding:1rem;overflow:auto">curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo bash</pre>
+<h2>O paso a paso (una sola vez)</h2>
 <pre style="background:#f4f4f4;padding:1rem;overflow:auto">sudo apt install -y curl ca-certificates
 sudo curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/aio-debian.gpg -o /usr/share/keyrings/aio-debian.gpg
 sudo tee /etc/apt/sources.list.d/aio-debian.sources &gt;/dev/null &lt;&lt;'EOF'

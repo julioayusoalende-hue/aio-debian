@@ -18,6 +18,11 @@ Qué hace al ejecutarlo:
 
 ## Instalación
 
+**Instalación rápida (una línea):**
+curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo bash
+
+**O paso a paso:**
+
 Una sola vez, en cualquier Debian (o derivada):
 
 ```
