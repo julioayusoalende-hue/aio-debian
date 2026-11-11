@@ -1,4 +1,8 @@
 #!/bin/bash
+# aio-debian - Mantenimiento y configuración todo en uno para Debian
+# Copyright (C) 2026 Julio Ayuso
+# Licencia: GNU GPL v3 o posterior (ver LICENSE o https://www.gnu.org/licenses/gpl-3.0.html)
+# Este programa se distribuye SIN NINGUNA GARANTÍA.
 
 # Definición de colores profesionales (todos con $'...' para que funcionen con o sin echo -e)
 ROJO=$'\e[1;31m'
