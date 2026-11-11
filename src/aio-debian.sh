@@ -166,8 +166,9 @@ anadir_componentes() {
 
     case "$f" in
         *.sources)
-            # Solo si el archivo apunta a servidores de Debian
-            if ! grep -qiE '^URIs:.*debian' "$f"; then rm -f "$copia"; return 1; fi
+            # Solo si apunta a servidores oficiales de Debian (no a repos de terceros
+            # cuyo nombre contenga 'debian', como .../aio-debian)
+            if ! grep -qiE '^URIs:.*(debian\.org|/debian/?([[:space:]]|$))' "$f"; then rm -f "$copia"; return 1; fi
             sed -i -E '/^Components:/ {
                 /(^|[[:space:]])contrib([[:space:]]|$)/! s/[[:space:]]*$/ contrib/
                 /(^|[[:space:]])non-free([[:space:]]|$)/! s/[[:space:]]*$/ non-free/
@@ -175,7 +176,7 @@ anadir_componentes() {
             ;;
         *.list)
             # Solo líneas deb/deb-src de Debian que tengan el componente 'main'
-            sed -i -E '/^[[:space:]]*deb(-src)?[[:space:]].*debian/ {
+            sed -i -E '/^[[:space:]]*deb(-src)?[[:space:]].*(debian\.org|\/debian\/?[[:space:]])/ {
                 /[[:space:]]main([[:space:]]|$)/ {
                     /[[:space:]]contrib([[:space:]]|$)/! s/[[:space:]]*$/ contrib/
                     /[[:space:]]non-free([[:space:]]|$)/! s/[[:space:]]*$/ non-free/
