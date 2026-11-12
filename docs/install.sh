@@ -3,6 +3,10 @@
 #
 #   curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo bash
 #
+# Si el equipo no tiene curl, usa una de estas dos formas:
+#   wget -qO- https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo bash
+#   sudo sh -c 'apt-get update -qq && apt-get install -y curl ca-certificates' && curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo bash
+#
 # Canal de pruebas (opcional):
 #   curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo AIO_SUITE=testing bash
 #
@@ -35,10 +39,16 @@ main() {
         SUDO="sudo"
     fi
 
-    if ! command -v curl >/dev/null 2>&1; then
-        echo "[*] Instalando curl y certificados..."
+    # Dependencias para descargar por HTTPS: curl y los certificados de confianza
+    local faltan=""
+    command -v curl >/dev/null 2>&1 || faltan="curl"
+    dpkg-query -W -f='${Status}' ca-certificates 2>/dev/null | grep -q "install ok installed" \
+        || faltan="$faltan ca-certificates"
+    if [ -n "$faltan" ]; then
+        echo "[*] Instalando dependencias:$faltan ..."
         $SUDO apt-get update -qq
-        $SUDO apt-get install -y curl ca-certificates
+        # shellcheck disable=SC2086
+        $SUDO apt-get install -y $faltan
     fi
 
     TMP_KEY=$(mktemp)
