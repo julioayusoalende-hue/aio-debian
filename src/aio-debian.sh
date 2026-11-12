@@ -29,6 +29,28 @@ fi
 echo ""
 echo ""
 
+# ------------------------------------------------------------------------------
+# Versión del script y novedades
+# La versión es la del paquete .deb instalado (aio-debian). Las novedades se
+# registran aquí: al publicar una versión nueva, añade su entrada en el 'case'.
+# ------------------------------------------------------------------------------
+novedades_de_version() {
+    case "$1" in
+        1.1.1)
+            echo "Nuevo icono de la aplicación."
+            echo "Muestra la versión del script y sus novedades al iniciar."
+            ;;
+        1.1.0)
+            echo "Detecta una gráfica NVIDIA y ofrece instalar el driver adecuado (nvidia-detect)."
+            ;;
+        *) return 1 ;;
+    esac
+}
+
+VERSION_SCRIPT=$(dpkg-query -W -f='${Status}|${Version}' aio-debian 2>/dev/null \
+    | awk -F'|' '$1 ~ /install ok installed/ {print $2}')
+[ -n "$VERSION_SCRIPT" ] || VERSION_SCRIPT="desarrollo (no instalado desde paquete)"
+
 # --- INFORMACIÓN DEL SISTEMA ---
 echo "${AZUL}Información del Sistema:${RESET}"
 echo "${AZUL}------------------------${RESET}"
@@ -102,6 +124,13 @@ if [ -n "$FECHA_INSTALACION" ]; then
         DIAS_TOTALES=$(( ( $(date +%s) - $(date -d "$FECHA_INSTALACION" +%s) ) / 86400 ))
         echo "${AZUL}    Antigüedad del sistema: ${ANTIG_ANIOS} años, ${ANTIG_MESES} meses y ${ANTIG_DIAS} días (${DIAS_TOTALES} días en total)${RESET}"
     fi
+fi
+echo "${AZUL}    Versión de aio-debian: ${VERSION_SCRIPT}${RESET}"
+if NOVEDADES=$(novedades_de_version "$VERSION_SCRIPT"); then
+    echo "${AZUL}    Novedades de esta versión:${RESET}"
+    while IFS= read -r linea; do
+        echo "${AZUL}      - ${linea}${RESET}"
+    done <<< "$NOVEDADES"
 fi
 echo ""
 echo "${AZUL}==================================================${RESET}"

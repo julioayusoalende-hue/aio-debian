@@ -32,7 +32,7 @@ Description: Script AiO de mantenimiento y configuración para Debian
  Flathub, ofrece complementos para GNOME y comprueba si hace falta reiniciar.
  Este paquete configura su propio repositorio APT para recibir actualizaciones.
 Filename: pool/testing/aio-debian_1.1.1_all.deb
-Size: 348252
-MD5sum: e49f89ec4c77a5dfd20f76b69cde2f27
-SHA256: 835afae26df5575436182f6561455ebc76449f065323480124d08da26857efe1
+Size: 348592
+MD5sum: d46577d1a7ba1141cbd90cbf0661d9e5
+SHA256: 865f1cff0ee98136e120e35ca28658770bc7420701e572f0e8f6320a4f61b887
 
