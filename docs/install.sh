@@ -46,7 +46,7 @@ main() {
         || faltan="$faltan ca-certificates"
     if [ -n "$faltan" ]; then
         echo "[*] Instalando dependencias:$faltan ..."
-        $SUDO apt-get update -qq
+        $SUDO apt-get update -qq || echo "[!] 'apt-get update' dio errores; se intenta seguir con las listas actuales." >&2
         # shellcheck disable=SC2086
         $SUDO apt-get install -y $faltan
     fi
@@ -70,7 +70,24 @@ Signed-By: $keyring
 EOT
 
     echo "[*] Instalando aio-debian..."
-    $SUDO apt-get update
+    local log
+    log=$(mktemp)
+    if ! $SUDO apt-get update 2>&1 | tee "$log"; then
+        if grep -qi 'not live until' "$log"; then
+            echo >&2
+            echo "[!] Las firmas de los repositorios aún no son válidas para el reloj de este equipo:" >&2
+            echo "    la fecha y hora del sistema está ATRASADA (típico en máquinas virtuales restauradas)." >&2
+            echo "    Comprueba la hora con: date" >&2
+            echo "    Sincronízala con:      sudo timedatectl set-ntp true" >&2
+            echo "    (si no existe el servicio: sudo apt-get install -y systemd-timesyncd)" >&2
+            echo "    Espera unos segundos y vuelve a ejecutar este instalador." >&2
+        else
+            echo "[!] 'apt-get update' falló. Revisa los mensajes anteriores." >&2
+        fi
+        rm -f "$log"
+        exit 1
+    fi
+    rm -f "$log"
     $SUDO apt-get install -y -o Dpkg::Options::=--force-confnew aio-debian
 
     echo
