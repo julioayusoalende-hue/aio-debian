@@ -3,6 +3,9 @@
 #
 #   curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo bash
 #
+# Canal de pruebas (opcional):
+#   curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo AIO_SUITE=testing bash
+#
 # Qué hace: instala la clave de firma, añade el repositorio APT de aio-debian
 # e instala el paquete. Es idempotente: puedes ejecutarlo otra vez sin problema.
 # Licencia: GNU GPL v3 o posterior. Sin ninguna garantía.
@@ -12,6 +15,11 @@ main() {
     local base_url="https://julioayusoalende-hue.github.io/aio-debian"
     local keyring="${AIO_KEYRING:-/usr/share/keyrings/aio-debian.gpg}"
     local sources="${AIO_SOURCES:-/etc/apt/sources.list.d/aio-debian.sources}"
+    local suite="${AIO_SUITE:-stable}"
+    case "$suite" in
+        stable|testing) ;;
+        *) echo "AIO_SUITE debe ser 'stable' o 'testing'." >&2; exit 1 ;;
+    esac
 
     command -v apt-get >/dev/null 2>&1 || {
         echo "Este instalador es solo para Debian y derivadas (necesita apt)." >&2
@@ -45,7 +53,7 @@ main() {
     $SUDO tee "$sources" >/dev/null <<EOT
 Types: deb
 URIs: $base_url
-Suites: stable
+Suites: $suite
 Components: main
 Architectures: all
 Signed-By: $keyring

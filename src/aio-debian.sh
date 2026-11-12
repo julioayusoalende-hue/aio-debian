@@ -121,6 +121,9 @@ echo ""
 # Indica si ya se ejecutó apt-get update en esta sesión
 LISTAS_ACTUALIZADAS=0
 
+# Se pone a 1 si se instala un driver NVIDIA (hace falta reiniciar para cargarlo)
+REINICIO_NVIDIA=0
+
 # Instala Flatpak (si el usuario acepta) y configura el repositorio Flathub
 instalar_soporte_flatpak() {
     echo -e "${AMARILLO}[!] Flatpak no está instalado en este sistema.${RESET}"
@@ -293,6 +296,112 @@ ofrecer_extension_manager() {
     esac
 }
 
+# Devuelve 0 si hay una GPU NVIDIA en el bus PCI (vendor 0x10de, clase 0x03xx).
+# Lee /sys directamente, así no depende de que pciutils esté instalado.
+hay_gpu_nvidia() {
+    local d dir="${AIO_PCI_DIR:-/sys/bus/pci/devices}"
+    for d in "$dir"/*; do
+        [ -r "$d/vendor" ] && [ -r "$d/class" ] || continue
+        if [ "$(cat "$d/vendor")" = "0x10de" ] && [[ "$(cat "$d/class")" == 0x03* ]]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+# Devuelve 0 si además de la NVIDIA hay otra gráfica (portátil híbrido)
+hay_otra_gpu() {
+    local d dir="${AIO_PCI_DIR:-/sys/bus/pci/devices}"
+    for d in "$dir"/*; do
+        [ -r "$d/vendor" ] && [ -r "$d/class" ] || continue
+        if [ "$(cat "$d/vendor")" != "0x10de" ] && [[ "$(cat "$d/class")" == 0x03* ]]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+# Devuelve 0 si Secure Boot está activado
+secure_boot_activo() {
+    if command -v mokutil &> /dev/null; then
+        mokutil --sb-state 2>/dev/null | grep -qi 'SecureBoot enabled'
+        return
+    fi
+    local v=/sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c
+    [ -r "$v" ] && [ "$(od -An -t u1 "$v" 2>/dev/null | awk '{print $NF}')" = "1" ]
+}
+
+# Si hay una gráfica NVIDIA y no hay driver propietario instalado, ofrece
+# instalar el adecuado. El paquete lo decide 'nvidia-detect' (herramienta
+# oficial de Debian); requiere el componente 'non-free' habilitado.
+ofrecer_driver_nvidia() {
+    hay_gpu_nvidia || return 0
+
+    # Si ya hay un driver propietario de NVIDIA instalado, no hay nada que ofrecer
+    if dpkg -l 'nvidia-*driver' nvidia-kernel-dkms 2>/dev/null | grep -q '^ii'; then
+        echo -e "${VERDE}[✔] Gráfica NVIDIA detectada y driver propietario ya instalado.${RESET}\n"
+        return 0
+    fi
+
+    echo -e "${AMARILLO}[!] Gráfica NVIDIA detectada, sin driver propietario instalado:${RESET}"
+    if command -v lspci &> /dev/null; then
+        lspci -nn 2>/dev/null | grep -iE 'vga|3d|display' | grep -i nvidia | sed 's/^/    /'
+    fi
+
+    instalar_si_falta nvidia-detect "No se pudo instalar 'nvidia-detect' (¿está 'non-free' habilitado?)."
+    command -v nvidia-detect &> /dev/null || return 0
+
+    local salida paq
+    salida=$(LC_ALL=C nvidia-detect 2>/dev/null)
+    paq=$(echo "$salida" | grep -iA3 'recommended to install' | grep -oE 'nvidia-[a-z0-9.-]*driver' | head -1)
+
+    if [ -z "$paq" ]; then
+        echo -e "${AZUL}[*] nvidia-detect no recomienda ningún driver propietario para esta tarjeta."
+        echo -e "    Se seguirá usando 'nouveau', el driver libre.${RESET}\n"
+        return 0
+    fi
+    if ! apt-cache show "$paq" &> /dev/null; then
+        echo -e "${NARANJA}[-] El driver recomendado ('${paq}') no está en tus repositorios.${RESET}\n"
+        return 0
+    fi
+
+    echo -e "${AZUL}    Driver recomendado por nvidia-detect: ${paq}${RESET}"
+    if hay_otra_gpu; then
+        echo -e "${AMARILLO}    Aviso: hay otra gráfica además de la NVIDIA (portátil híbrido). El driver se"
+        echo -e "    instala igualmente, pero cambiar entre gráficas (PRIME) puede requerir configuración.${RESET}"
+    fi
+    if secure_boot_activo; then
+        echo -e "${AMARILLO}    Aviso: Secure Boot está activado. El módulo del driver debe estar firmado: puede"
+        echo -e "    que tengas que registrar la clave de firma de DKMS (MOK) y confirmarla en el próximo"
+        echo -e "    arranque (pantalla 'Enroll MOK'). Si no, el driver no se cargará.${RESET}"
+    fi
+
+    read -r -p "¿Deseas instalar '${paq}' y las cabeceras del kernel ahora? (s/N): " resp_nvidia
+    case "$resp_nvidia" in
+        [sS]|[sS][iI])
+            local paquetes=("$paq" "linux-headers-$(dpkg --print-architecture)")
+            if apt-cache show "linux-headers-$(uname -r)" &> /dev/null; then
+                paquetes+=("linux-headers-$(uname -r)")
+            fi
+
+            echo -e "${VERDE}[*] Instalando: ${paquetes[*]}${RESET}"
+            # Sin DEBIAN_FRONTEND=noninteractive: así puede mostrar avisos de debconf
+            apt-get -y install "${paquetes[@]}"
+
+            if paquete_instalado "$paq"; then
+                REINICIO_NVIDIA=1
+                echo -e "${VERDE}[✔] Driver NVIDIA instalado. Hay que reiniciar para cargarlo.${RESET}"
+                echo -e "${AZUL}    Después comprueba que funciona con: nvidia-smi${RESET}\n"
+            else
+                echo -e "${NARANJA}[-] No se pudo instalar el driver. Revisa los mensajes anteriores.${RESET}\n"
+            fi
+            ;;
+        *)
+            echo -e "${AZUL}[*] Omitiendo la instalación del driver NVIDIA.${RESET}\n"
+            ;;
+    esac
+}
+
 # Comprueba si el reloj está sincronizado por NTP y, si no, intenta sincronizarlo.
 # Un reloj desfasado rompe la validación de certificados SSL (apt, Flathub...).
 sincronizar_reloj() {
@@ -430,6 +539,9 @@ if ! apt-get dist-upgrade -y; then
 fi
 echo ""
 
+# 2b. Si hay gráfica NVIDIA, ofrecer el driver adecuado (tras actualizar el kernel)
+ofrecer_driver_nvidia
+
 # 3. Eliminar dependencias huérfanas que ya no son necesarias
 echo "${VERDE}[*] Eliminando dependencias huérfanas (apt-get autoremove)...${RESET}"
 apt-get autoremove -y
@@ -456,6 +568,10 @@ echo ""
 NECESITA_REINICIO=0
 
 if [ -f /var/run/reboot-required ]; then
+    NECESITA_REINICIO=1
+fi
+
+if [ "$REINICIO_NVIDIA" -eq 1 ]; then
     NECESITA_REINICIO=1
 fi
 

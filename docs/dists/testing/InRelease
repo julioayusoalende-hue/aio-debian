@@ -1,0 +1,33 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: aio-debian
+Label: aio-debian
+Suite: testing
+Codename: testing
+Date: Thu, 12 Nov 2026 00:44:11 UTC
+Architectures: all
+Components: main
+Description: Repositorio APT de aio-debian (testing)
+MD5Sum:
+ ebf6dc8d386a8ec068a4935f0a1e7af0              820 main/binary-all/Packages
+ f0e6410f3b8285cb4755ac761161da8b              571 main/binary-all/Packages.gz
+SHA256:
+ f882492a6dc7bd94b070b078be00393e9dc426cd3c3e0d7a3442e79cd5293bc0              820 main/binary-all/Packages
+ 250fa7714140afd5066d69f18e48d4a8f164b555181a3463bfacaaa32970d1bd              571 main/binary-all/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEBKUjgaIDXVuVJMpq4OZLjuD5AAwFAmr1C9sACgkQ4OZLjuD5
+AAwH+g/9E8P+4XMDw8/hrGu2i7dTEfSWAau5mdjj0wVMjr8VFaIarlw/42JGyeIy
+MOzTEPUwSwLa0co6gGywtyM15tWRvKgFPEIwZTpxcrHDHh3XDBxKMAcm6obJZaT/
+J3EGC9Y+dCTeHbb/skFuOXziHHZ48yB42XkQJvL8ZWugyjlCThrhv0BhLN+9CEwr
+TbUm296jpiaBf+ttq8Y0F2QZLV990DdHOIma1XBCrfNeIbISECqjvLsB2CYw+zCf
+w8wov0bVX2IfnFxQhaP444li7hPk2jL2e4YmGzfwCT4iqptQmdD05Qa7AF98dWKc
+NzJ3osymaCGPB030iFNU6Guf/kbreFsFB4cHfJzfFzlepaVHPAk50aQDYnAmeS1+
+PCgP6u04c6B9WSpHmQkHW6MghEGXmAamXM1xQjhUjPXbrgzVLJRfG9W6L38YlgVQ
+abESOfZT7pnGP6ImA+nApatpzgnxN9T8TrgdmkqGfAPO7kWxZowP1fiJBeGYDjRK
+FeuGGhGPO5w4EkaFVk8sY3xnbNPZxjilJFehLtTpCkRcETsL2zV/5uDR2/UWiuxi
+58yUPTaOId1gJWIuDjrwb6JfE5dZSR7a5jA5p7kxTMr7PEqHHp5S6oS0auRbxaNq
+o5PFgNPreD2XCBIi5PmKtsNHg9lK3NnAXAGp6YntsujFb/b3Cbo=
+=AAhQ
+-----END PGP SIGNATURE-----

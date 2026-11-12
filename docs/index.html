@@ -5,7 +5,7 @@
 <h1>aio-debian</h1>
 <p>Script todo en uno de mantenimiento y configuración para Debian: actualiza con apt,
 habilita <code>contrib</code> y <code>non-free</code>, instala Flatpak/Flathub y mucho más.
-Software libre (GPL-3.0+). Versión actual: <strong>1.0.3</strong>.</p>
+Software libre (GPL-3.0+).</p>
 <h2>Instalación rápida</h2>
 <pre style="background:#f4f4f4;padding:1rem;overflow:auto">curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo bash</pre>
 <h2>O paso a paso (una sola vez)</h2>
@@ -21,6 +21,11 @@ Signed-By: /usr/share/keyrings/aio-debian.gpg
 EOF
 sudo apt update
 sudo apt install -o Dpkg::Options::=--force-confnew aio-debian</pre>
+<h2>Versiones de pruebas (testing)</h2>
+<p>Para recibir antes las novedades, aún sin estabilizar:</p>
+<pre style="background:#f4f4f4;padding:1rem;overflow:auto">curl -fsSL https://julioayusoalende-hue.github.io/aio-debian/install.sh | sudo AIO_SUITE=testing bash</pre>
+<p>Para volver al canal estable: edita <code>/etc/apt/sources.list.d/aio-debian.sources</code>
+y pon <code>Suites: stable</code>.</p>
 <h2>Uso y actualización</h2>
 <pre style="background:#f4f4f4;padding:1rem;overflow:auto">sudo aio-debian                       # ejecutar
 sudo apt update &amp;&amp; sudo apt upgrade   # actualizar</pre>
