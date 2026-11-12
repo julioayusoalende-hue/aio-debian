@@ -5,29 +5,29 @@ Origin: aio-debian
 Label: aio-debian
 Suite: stable
 Codename: stable
-Date: Thu, 12 Nov 2026 01:49:15 UTC
+Date: Thu, 12 Nov 2026 01:59:00 UTC
 Architectures: all
 Components: main
 Description: Repositorio APT de aio-debian (stable)
 MD5Sum:
- 4dfa82cd54717e507efbcb2356f6ec00             5722 main/binary-all/Packages
- 11a82657dbc8dbdcb7b2d6f1622d1c33             1082 main/binary-all/Packages.gz
+ 73a6c7d838571ba32eae4783f6fcd723             6540 main/binary-all/Packages
+ cf7c547f94d9ce60533cb82e2c3a9e71             1160 main/binary-all/Packages.gz
 SHA256:
- 7d84c2e35c056a5a7a5a8ec941ee3630406f2a429ecd7f07f5cedcc0a3ca5f03             5722 main/binary-all/Packages
- 2a6272e6cd138e9b8d9ae8a29869166c0951b38326930d6a7561287dcb3fa39a             1082 main/binary-all/Packages.gz
+ 7a7401118ead35e5c10886c68223c7b7c55fe278918355dbe310a69630c6d554             6540 main/binary-all/Packages
+ b382cc193a70ade2a1392246240007f5270e7bf3957d49ae7e9c5a9701181577             1160 main/binary-all/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIyBAEBCgAdFiEEBKUjgaIDXVuVJMpq4OZLjuD5AAwFAmr1GxsACgkQ4OZLjuD5
-AAxbQQ/1FmABbJpMuk8Icn/kZycuhHzSrFy/A5IdDbh7w1kiBjpiRPs3Ol7ikAWl
-JAfUjXmokSYTnZj4em9rgXavhq3rYfR44lBoSXt4uhF47Q8uXZoh2yssXnUYG4G8
-1deaDPUmLOVo/e4/5IlD6z6Y4+B5QutQjbMkBGIxLnT7IRsQdPYkiE4pazjtyAYM
-+Pv3RIGssZGFuGRfKE6gCEzYfLmqyn6n5M1BTYQpsmmmVQa3Dz8D5tGYBmmVjbqq
-zsLRawZ2zjVprGJtMuJUi5+KRHUzR7JR6FSlTU1UET/wXTQqar+m1061VRFL7u9n
-eTNpVHFz8DS4QMS7y63klcCD4NCvJ0Slpgj9zv50N/U/rIodrDNmrLLf5dV+XXoR
-F8c0tKK/aK0H+TZi4RMCUZ3+Z+2ig9C8/JrQUWCchGUc9f/KrDa3DQSmLj1cQcd/
-UcDzxwZmj9/JK29MdNnnTkOgoREFVmX9BhI/gxMiK6Wb01bcayDjN/0d28NJ4nQf
-CtBrYDcxSahBEsjOIp3MELH9xfi4XRhKuhMWR5r0D5oyO2AISz/42NkYsKnH7qfJ
-f3G21K4TnY83CmPz+TqCQlkgjMCUhElrjN13zlgUG1cmOx+DtPv6FrDrWl4Z7xSW
-LkDnAGCdt/soW15QuOI0LqLiEaOyCI4u6GfxdAXOKwZrh60/tw==
-=/yp/
+iQIzBAEBCgAdFiEEBKUjgaIDXVuVJMpq4OZLjuD5AAwFAmr1HWQACgkQ4OZLjuD5
+AAwbLQ//chIqL7hnw08J5C+Ah05RtQX5PcFGkewNtfOZK8/VS5Uo2GajzjHBAcbb
+7T/VoaPpS5+FvhaCVSkU3TgzIwLzV0Lzzo6/yhxcwTYwj4CRQbrZ0XTglxNBIIBb
+SGZkq5dIEqdYpIbPNfsxal4IbwztJw/G7T6R/Zr6HtJynabJOrqb0g474qXhedWK
+qEb2FY47oGpUhG4S4ggT9/dhb8RJkkFnkYaXjqu+Rpql41H0ZzNrBeO9tfYHc/CI
+2eg5Lgj79IOO7UMNBGqm7nNl5NfOx7mowsdEozw0WFcPsywAdGTv0PVZxBGZlnfM
+66xkKQBBAgqGGYWCM8ur8XtGU25RkPWwDtTo0HrPytygNv9VQmquxY13RdzybvYH
+8tGVu8t2fkP0Ker5koxRqOUl63aIQbhCGoVnUs9J3yLbCqitHqTcFzvm9Hb17YHo
+2JfVwyipknep5g5VmD3VeGUedQ4KPok9WrkuIMzr53chOzx+R0mAQyk+2DxLK81b
+vaCu7eiP5QQkHoRkuVg4XrvPV/b24kjBhWDdMBqxaFetws+hKxsLKMhzTQi1PFu2
+TS9VR/U4CkWO5JGNvVJXZLaDcFalt/h62PoKZVEzEluFCC+xfoEwuo+rDdcs1IGD
+8qprglPUQEAtOj/W7Obf4L2S1kIePVKi8fNgQKJ3YfGHLVALDCM=
+=wral
 -----END PGP SIGNATURE-----

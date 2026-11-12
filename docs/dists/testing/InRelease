@@ -5,29 +5,29 @@ Origin: aio-debian
 Label: aio-debian
 Suite: testing
 Codename: testing
-Date: Thu, 12 Nov 2026 01:49:13 UTC
+Date: Thu, 12 Nov 2026 01:58:59 UTC
 Architectures: all
 Components: main
 Description: Repositorio APT de aio-debian (testing)
 MD5Sum:
- 08c85b77b2a15fe95270bc668524e00a             3283 main/binary-all/Packages
- 4f2a0b48e247a1a33d823b026164e2b1              845 main/binary-all/Packages.gz
+ 41beddc62e977d6b350dda26af63e37f             4104 main/binary-all/Packages
+ cf03aadbbe60a4b85509650069c57f8f              924 main/binary-all/Packages.gz
 SHA256:
- 026a7648f646ae68258c165e368f82995a8bb96001f8b0a56b8b701e7dddbc78             3283 main/binary-all/Packages
- ad6d53132dce882bb2394724e90e1e962806a451b8607472d63df364b98ad875              845 main/binary-all/Packages.gz
+ e8a79b1adb9892d1816761245a761db5686f4e23d28a63313eecff3296519561             4104 main/binary-all/Packages
+ 4269f5182c23e47f6157899906ed8da6f114f0968499d965724ad58eaf12c6c7              924 main/binary-all/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEBKUjgaIDXVuVJMpq4OZLjuD5AAwFAmr1GxkACgkQ4OZLjuD5
-AAwyNA//Yge1q+vMOywCxVwFC+alvSqaYEoKsPjRleoIOTGL+uMTCcozDLEX5x1q
-7/LRNvCHQYBe1liW6SPpAU1SRH3gxHPd70TPrFmU8UZiZ+DAI5li9/xojtGglmJQ
-sLMdJiZtTEHb0MXv6Ec3J7Zqpoqbckrs0AvGOz5Ez2TG+1lhSl3zLplXvRYRb+6g
-R7GzEc/QXVPwpEqzDEflf8lu4d+uR3pWd7jSirolzXFRqEKKrPa90gvjC7QGBK65
-sslcd169GoWHFmAO4VXQ6WhnpKjz5hrVulIvC6gZbKo5j+d4/kvwF6y2gvUhM65Q
-eMRKkdaHJ4dyZTNRZHQBSZVFfNCIv7tUrradiqHEgaKKxqfZdQQyu3tc0T72LZca
-rlvByQyJfehI6y9SxErX2shPSC54uB7cKvrPMMw7XrlBpcc0W1XJD84WofR9kH9z
-fw2sXn1qXJjqLqPzoeL3tupOJAkpEpexuLyV1SfTF1KWx1rvXBvDZw5zU+WFFt5O
-3YbmBJsEapT2+c5ksVh3EJVmtC7Ggb45hUbIJUVnc4aV/ewiO2yP54N21YH92jKP
-8D+HcaPTXvapkdHA/68Bp20ZRkfto3CdAVyo0jVrdVDtjg9Erq3d71p3ykN/8w1B
-sO88ESvH8aJ/KmTqWxeqBWRQceYffrLZjTdLvmehx2vh+Uv4law=
-=1MSx
+iQIzBAEBCgAdFiEEBKUjgaIDXVuVJMpq4OZLjuD5AAwFAmr1HWMACgkQ4OZLjuD5
+AAwakRAAr/ELqbxti+DRaZHgWTE8aBFD5l7KAw6ZfnGAlIEjf+hq+DGhKdC4YCFl
+K2gb593yzMK9L69yZluyLos6SPmg9VIwXwABm2wP6wI/vqIj5P2UdqbyBvA20tM6
+gBu6G+e8dVNrY5wxqPojLY8kIK35r8A7fJSPA+2B5lHz86+I3h9aJ+xyViTxnsKZ
+xxWlBrh1ObsxbyJOYPUIp9cU8mgTQuSLkkc+dVQDYm1F8sBZAl6PUoL6gPIhtjxP
+H0BskZaSDXd0rK3PkVqxwwH/ptG6Guap5MdUQk61fyYcCJLjWynnB2UO8/D/ilSr
+XYQmKX6RAYRmDUYnAVl/ih409AG4I7vZIbWFsWWNY53AEhXFlKjT3f939AehRDEI
+QfZ2ExND//DxFutbzCXnbUbA/FFrfJL0tOfPkzsFPG9lMU8+fmhHuBpBGFkCWs39
+SKPcS/fcTdF7iYVZ9S2oX+I5Sbei3dOhZf6TbtHvtSgo26QhUEqrWphwFF5C96rS
+2k01UgUx5XjWjkyQChMsFKsTb0RhpVeAGRaiomy5rc22hQxLoPBkKX3SSE/+o1dZ
+8Up1t3/H/bc2pdd0G5evoOZCGLBs+hSqPyIQb+3JmVgFyGm/qUAWTIj6S80ykDsn
+rBlB2C+SKfmoJUoxPpdKEdsjbsj/2jt9fRhc3E2D22D8PrG4xTQ=
+=nsaj
 -----END PGP SIGNATURE-----

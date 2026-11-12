@@ -36,6 +36,9 @@ echo ""
 # ------------------------------------------------------------------------------
 novedades_de_version() {
     case "$1" in
+        1.1.4)
+            echo "Instala Synaptic automáticamente si no está instalado."
+            ;;
         1.1.3)
             echo "Evita los avisos de arquitectura (i386/amd64) en 'apt update'."
             ;;
@@ -255,6 +258,24 @@ instalar_si_falta() {
 # Devuelve 0 si el paquete Debian indicado está instalado
 paquete_instalado() {
     dpkg-query -W -f='${Status}' "$1" 2>/dev/null | grep -q "install ok installed"
+}
+
+# Instala un paquete (por su nombre de paquete Debian) de forma automática y
+# silenciosa si no está instalado. Útil cuando el comando no se llama como el paquete.
+instalar_paquete_si_falta() {
+    local pkg="$1" aviso_fallo="$2"
+    paquete_instalado "$pkg" && return 0
+
+    echo -e "${AMARILLO}[*] '${pkg}' no detectado. Instalando automáticamente en segundo plano...${RESET}"
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" install "$pkg" &> /dev/null
+    unset DEBIAN_FRONTEND
+
+    if paquete_instalado "$pkg"; then
+        echo -e "${VERDE}[✔] '${pkg}' se instaló correctamente.${RESET}\n"
+    else
+        echo -e "${NARANJA}[!] ${aviso_fallo}${RESET}\n"
+    fi
 }
 
 # Si GNOME está instalado y Flatpak disponible, ofrece instalar el plugin de
@@ -564,6 +585,7 @@ ofrecer_extension_manager
 instalar_si_falta needrestart "No se pudo instalar 'needrestart'. Se usará el método manual."
 instalar_si_falta fastfetch   "No se pudo instalar 'fastfetch'. Puede que no esté disponible en tus repositorios."
 instalar_si_falta kitty       "No se pudo instalar 'kitty'. Puede que no esté disponible en tus repositorios."
+instalar_paquete_si_falta synaptic "No se pudo instalar 'synaptic'. Puede que no esté disponible en tus repositorios."
 
 # 2. Actualizar de forma segura los paquetes instalados
 echo "${VERDE}[*] Actualizando los paquetes del sistema (apt-get dist-upgrade)...${RESET}"
