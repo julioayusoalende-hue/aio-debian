@@ -2,13 +2,13 @@ Origin: aio-debian
 Label: aio-debian
 Suite: stable
 Codename: stable
-Date: Wed, 11 Nov 2026 23:53:41 UTC
+Date: Thu, 12 Nov 2026 01:02:25 UTC
 Architectures: all
 Components: main
-Description: Repositorio APT de aio-debian
+Description: Repositorio APT de aio-debian (stable)
 MD5Sum:
- 6bec5be78dc4657b0b121ea80c510319             3268 main/binary-all/Packages
- ba09cb2f245305bf9cfa8ea51af8b4dd              836 main/binary-all/Packages.gz
+ 988387555eddc1534ccf9ba16ecd753f             4086 main/binary-all/Packages
+ de6587f3f74a3c9e8d511639884c2312              919 main/binary-all/Packages.gz
 SHA256:
- 738af109137798b784207c7db7607206d3695f00fb75a1232f0aa67dd81bf38d             3268 main/binary-all/Packages
- 6facb96795200f469a39ee163dd565d7290336fc8d9b5942fa730351c9e3ab99              836 main/binary-all/Packages.gz
+ 9e1c83e6103fccefd65073e93f03e83ee31d3d364babefbd575cdba22be90c1e             4086 main/binary-all/Packages
+ 0d79b1cfce298fe96a6e841e8e4d332c2033c75ee868b537770c2acf4801b766              919 main/binary-all/Packages.gz
