@@ -36,6 +36,9 @@ echo ""
 # ------------------------------------------------------------------------------
 novedades_de_version() {
     case "$1" in
+        1.1.3)
+            echo "Evita los avisos de arquitectura (i386/amd64) en 'apt update'."
+            ;;
         1.1.2)
             echo "Muestra la versión del script y sus novedades al iniciar."
             ;;

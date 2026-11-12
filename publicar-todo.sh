@@ -6,13 +6,13 @@
 # Uso (desde la carpeta del proyecto):
 #   ./publicar-todo.sh [CARPETA_DE_DESCARGAS]        (por defecto ~/Descargas)
 # Versiones (cámbialas si hace falta):
-#   V_STABLE=1.0.5 V_TESTING=1.1.2 ./publicar-todo.sh
+#   V_STABLE=1.0.6 V_TESTING=1.1.3 ./publicar-todo.sh
 set -euo pipefail
 cd "$(dirname "$0")"
 
 DESC="${1:-$HOME/Descargas}"
-V_STABLE="${V_STABLE:-1.0.5}"
-V_TESTING="${V_TESTING:-1.1.2}"
+V_STABLE="${V_STABLE:-1.0.6}"
+V_TESTING="${V_TESTING:-1.1.3}"
 NVIDIA="$DESC/aio-debian.sh"
 ESTABLE="$DESC/aio-debian-estable.sh"
 
