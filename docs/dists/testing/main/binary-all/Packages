@@ -36,3 +36,22 @@ Size: 348592
 MD5sum: d46577d1a7ba1141cbd90cbf0661d9e5
 SHA256: 865f1cff0ee98136e120e35ca28658770bc7420701e572f0e8f6320a4f61b887
 
+Package: aio-debian
+Version: 1.1.2
+Section: admin
+Priority: optional
+Architecture: all
+Depends: bash, apt, coreutils, util-linux, gawk, sed, grep
+Recommends: sudo
+Maintainer: Julio Ayuso <epdc@msn.com>
+Homepage: https://julioayusoalende-hue.github.io/aio-debian
+Description: Script AiO de mantenimiento y configuración para Debian
+ Actualiza el sistema con apt (update, dist-upgrade, autoremove, autoclean),
+ habilita contrib y non-free, sincroniza el reloj, añade soporte Flatpak con
+ Flathub, ofrece complementos para GNOME y comprueba si hace falta reiniciar.
+ Este paquete configura su propio repositorio APT para recibir actualizaciones.
+Filename: pool/testing/aio-debian_1.1.2_all.deb
+Size: 348588
+MD5sum: 400b6d5fa8a3627c7e7a2c2f60f93e19
+SHA256: 5be1708d4e57df302e9708f575ac037e94c57c14ff9b69b8d554d57b18e230d1
+

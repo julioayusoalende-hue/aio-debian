@@ -36,9 +36,11 @@ echo ""
 # ------------------------------------------------------------------------------
 novedades_de_version() {
     case "$1" in
+        1.1.2)
+            echo "Muestra la versión del script y sus novedades al iniciar."
+            ;;
         1.1.1)
             echo "Nuevo icono de la aplicación."
-            echo "Muestra la versión del script y sus novedades al iniciar."
             ;;
         1.1.0)
             echo "Detecta una gráfica NVIDIA y ofrece instalar el driver adecuado (nvidia-detect)."

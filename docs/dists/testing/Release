@@ -2,13 +2,13 @@ Origin: aio-debian
 Label: aio-debian
 Suite: testing
 Codename: testing
-Date: Thu, 12 Nov 2026 01:33:23 UTC
+Date: Thu, 12 Nov 2026 01:42:19 UTC
 Architectures: all
 Components: main
 Description: Repositorio APT de aio-debian (testing)
 MD5Sum:
- bda229f5d7a225795652fe1deb8b9b31             1641 main/binary-all/Packages
- c8a39b438fb972f4cbac6097ff11bc56              674 main/binary-all/Packages.gz
+ 0b6ec070c04b590463f3dab5a3fc7fc3             2462 main/binary-all/Packages
+ 2354a83903a455199fc46929452c1278              761 main/binary-all/Packages.gz
 SHA256:
- 6a7ae92327bdd5748f8602c3ff69230a3907f0eac5467a2d028844b36c93f183             1641 main/binary-all/Packages
- c68a727c28e522dff641356925b0993944ecf99989823ec1b0771b9528fba6c1              674 main/binary-all/Packages.gz
+ d4c56f60c7f35740e4b7ef4f03cb9234b57789b142fd978a88cd6c9371be4834             2462 main/binary-all/Packages
+ a56979f1653980cc35aea7f7cd040ed5836bb3ee6d07b3f755681a8d733fc6d8              761 main/binary-all/Packages.gz
